@@ -1,15 +1,20 @@
+# запрашиваем у пользователя число
 n = int(input("Введите число: "))
-original = n
-factors = []
+original = n # сохраняем введенное число n
+factors = [] # сюда будем складывать простые множители
 
+# начинаем проверку с самого маленького простого числа
 divisor = 2
+# проверяем делители пока их квадарт не превысит n
 while divisor * divisor <= n:
+    # вытаскиваем все повторяющиеся множители числа
     while n % divisor == 0:
         factors.append(divisor)
         n //= divisor
+    # переходим к следующему потенциальному делителю
     divisor += 1
-
+# если после всех делений число > 1, значит оно простой множитель
 if n > 1:
     factors.append(n)
 
-    print(f"{original} = {' x '.join(map(str, factors))}")
+print(f"{original} = {' x '.join(map(str, factors))}")
